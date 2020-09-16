@@ -2,14 +2,21 @@
   "Routes": [
     {
       "DownstreamPathTemplate": "/api/product",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 44343
+          "Host": "www.productmicservice.com",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/product",
+      "UpstreamScheme": "http",
+      "UpstreamHostAndPorts": [
+        {
+          "Host": "www.apigateway.com",
+          "Port": 80
+        }
+      ],
       "UpstreamHttpMethod": [ "GET" ]
     }    
   ]
