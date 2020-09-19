@@ -10,7 +10,7 @@ namespace ProductMicroservice.Repository
     {
         IEnumerable<Product> GetProducts();
         Product GetProductByID(int ProductID);
-        void InsertProduct(Product product);
+        Product InsertProduct(Product product);
         void UpdateProduct(Product product);
         void Save();
     }

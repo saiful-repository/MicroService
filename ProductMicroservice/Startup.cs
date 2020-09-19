@@ -31,7 +31,11 @@ namespace ProductMicroservice
             services.AddControllers();            
             services.AddDbContext<ProductContext>(option => option.UseSqlServer(Configuration.GetConnectionString("ProductConnection")));
             services.AddTransient<IProductRepository, ProductRepository>();
-            
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyHeader());
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,7 +51,7 @@ namespace ProductMicroservice
             app.UseRouting();
 
             app.UseAuthorization();
-
+            app.UseCors("AllowOrigin");
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

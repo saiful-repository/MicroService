@@ -34,8 +34,17 @@ namespace ProductMicroservice.Controllers
 
         // POST: api/Product
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post([FromBody] Product product)
         {
+            if (product != null)
+            {
+                var addedProuct = _productRepository.InsertProduct(product);
+                return StatusCode(200, addedProuct);
+            }
+            else
+            {
+                return StatusCode(404, "Sending data is not valid");
+            }
         }
 
         // PUT: api/Product/5

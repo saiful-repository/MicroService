@@ -25,9 +25,11 @@ namespace ProductMicroservice.Repository
             return _dbContext.Products.ToList();
         }
 
-        public void InsertProduct(Product product)
+        public Product InsertProduct(Product product)
         {
-            throw new NotImplementedException();
+            _dbContext.Products.Add(product);
+            Save();
+            return product;
         }
 
         public void Save()
