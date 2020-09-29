@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductMicroservice", "Prod
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APIGateway", "APIGateway\APIGateway.csproj", "{F085F324-70FF-4853-91D4-CF93638C588A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentMicroservice", "StudentMicroservice\StudentMicroservice.csproj", "{AB5DBB80-B37B-4B5A-9371-71A2916EB66D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F085F324-70FF-4853-91D4-CF93638C588A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F085F324-70FF-4853-91D4-CF93638C588A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F085F324-70FF-4853-91D4-CF93638C588A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB5DBB80-B37B-4B5A-9371-71A2916EB66D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB5DBB80-B37B-4B5A-9371-71A2916EB66D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB5DBB80-B37B-4B5A-9371-71A2916EB66D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB5DBB80-B37B-4B5A-9371-71A2916EB66D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
