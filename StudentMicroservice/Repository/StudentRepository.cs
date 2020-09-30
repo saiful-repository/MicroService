@@ -31,6 +31,12 @@ namespace StudentMicroservice.Repository
             return student;
         }
 
+        public void InsertStudentPortfolioImage(StudentPortfolioImage studentPortfolioImage)
+        {
+            studentDBContext.StudentPortfolioImages.Add(studentPortfolioImage);
+            Save();            
+        }
+
         public void Save()
         {
             studentDBContext.SaveChanges();

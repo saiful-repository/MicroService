@@ -9,7 +9,7 @@ namespace StudentMicroservice.ViewModel
 {
     public class StudentViewModel
     {
-        [Key]
+        
         public int Id { get; set; }
         [Required]
         public string FirstName { get; set; }
@@ -24,5 +24,7 @@ namespace StudentMicroservice.ViewModel
         [MinLength(4, ErrorMessage ="Password length min should be 4 digit")]
         public string Password { get; set; }
         public IFormFile Photo { get; set; }
+
+        public List<IFormFile> PortfolioImage { get; set; }
     }
 }

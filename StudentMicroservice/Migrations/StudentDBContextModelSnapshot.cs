@@ -47,6 +47,24 @@ namespace StudentMicroservice.Migrations
 
                     b.ToTable("Students");
                 });
+
+            modelBuilder.Entity("StudentMicroservice.Model.StudentPortfolioImage", b =>
+                {
+                    b.Property<int>("PhotoID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("StudentID")
+                        .HasColumnType("int");
+
+                    b.HasKey("PhotoID");
+
+                    b.ToTable("StudentPortfolioImages");
+                });
 #pragma warning restore 612, 618
         }
     }

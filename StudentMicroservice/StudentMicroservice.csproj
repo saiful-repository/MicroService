@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Image\" />
+    <Folder Include="Image\Portfolio\" />
   </ItemGroup>
 
 

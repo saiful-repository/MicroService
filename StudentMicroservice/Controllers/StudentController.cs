@@ -99,14 +99,46 @@ namespace StudentMicroservice.Controllers
                 student.Photo = pathToSave;
 
                 var addedStudent = studentRepository.InsertStudent(student);
-                //int id = addedStudent.Id;
-                //studentViewModel.Id = id;
+
+                if(studentViewModel.PortfolioImage!=null)
+                {
+                    PortfolioImage(studentViewModel.PortfolioImage, addedStudent.Id);
+                }
                 return StatusCode(StatusCodes.Status201Created, addedStudent);
             }
             else
             {
                 return StatusCode(404, "Sending data is not valid");
             }           
+        }
+
+        [NonAction]
+        private void PortfolioImage(List<IFormFile> portfolioImage, int studentId)
+        {
+            if(portfolioImage.Count>0)
+            {
+                foreach(var item in portfolioImage)
+                {
+                    var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "Image");
+                    folderPath= Path.Combine(folderPath, "Portfolio");
+                    var pathToSave = "";
+
+                    if (item.Length > 0)
+                    {
+                        pathToSave = Path.Combine(folderPath, item.FileName);
+
+                        using (var fileStream = new FileStream(pathToSave, FileMode.Create))
+                        {
+                            item.CopyTo(fileStream);
+                        }
+
+                        StudentPortfolioImage studentPortfolioImage = new StudentPortfolioImage();
+                        studentPortfolioImage.StudentID = studentId;
+                        studentPortfolioImage.ImageUrl = pathToSave;
+                        studentRepository.InsertStudentPortfolioImage(studentPortfolioImage);
+                    }
+                }
+            }
         }
     }
 }

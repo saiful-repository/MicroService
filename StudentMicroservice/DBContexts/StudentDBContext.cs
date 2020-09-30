@@ -15,5 +15,6 @@ namespace StudentMicroservice.DBContexts
         }
 
        public DbSet<Student> Students { get; set; }
+       public DbSet<StudentPortfolioImage> StudentPortfolioImages { get; set; }
     }
 }
