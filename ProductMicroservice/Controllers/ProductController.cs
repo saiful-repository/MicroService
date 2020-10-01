@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProductMicroservice.Model;
 using ProductMicroservice.Repository;
+using ProductMicroservice.ViewModel;
 
 namespace ProductMicroservice.Controllers
 {
@@ -20,9 +21,13 @@ namespace ProductMicroservice.Controllers
         }
         // GET: api/Product
         [HttpGet]
-        public IEnumerable<Product> Get()
+        public IActionResult Get([FromQuery] int currentPage, int itemsPerPage)
         {
-            return _productRepository.GetProducts();
+            var result= _productRepository.GetProducts();
+            ProductViewModel model = new ProductViewModel();
+            model.TotalResult = result.Count();
+            model.Data = result.Skip(currentPage*itemsPerPage-itemsPerPage).Take(itemsPerPage);
+            return StatusCode(StatusCodes.Status200OK, model);
         }
 
         // GET: api/Product/5
